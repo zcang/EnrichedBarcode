@@ -1,0 +1,324 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>EnrichedPH API Reference &#8212; enriched_ph 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="enrichedph-api-reference">
+<h1>EnrichedPH API Reference<a class="headerlink" href="#enrichedph-api-reference" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-enriched_ph"></span><div class="section" id="module-enriched_ph.EnrichedPH">
+<span id="the-spaotsc-module"></span><h2>The SpaOTsc module<a class="headerlink" href="#module-enriched_ph.EnrichedPH" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="enriched_ph.EnrichedPH.PCF">
+<em class="property">class </em><code class="descclassname">enriched_ph.EnrichedPH.</code><code class="descname">PCF</code><span class="sig-paren">(</span><em>X</em>, <em>dmat=None</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object for persistent cohomology analysis of heterogeneous data.</p>
+<dl class="method">
+<dt id="enriched_ph.EnrichedPH.PCF.assemble_boundary_matrix">
+<code class="descname">assemble_boundary_matrix</code><span class="sig-paren">(</span><em>dim</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF.assemble_boundary_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct the coboundary matrices of the final complex</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dim</strong> (<em>int</em>) – dimension k, C^{k-1} -&gt; C^k</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="enriched_ph.EnrichedPH.PCF.collect_nd_simplices">
+<code class="descname">collect_nd_simplices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF.collect_nd_simplices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect the simplices of different dimensions separately.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="enriched_ph.EnrichedPH.PCF.compute_enriched_barcode">
+<code class="descname">compute_enriched_barcode</code><span class="sig-paren">(</span><em>f</em>, <em>dim</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF.compute_enriched_barcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the enriched barcodes</p>
+<dl class="docutils">
+<dt>Returns: </dt>
+<dd><ol class="first last arabic simple">
+<li>the original barcode,</li>
+<li>the filtration values examined for each bar,</li>
+<li>the corresponding function values for each bar.</li>
+</ol>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> – the information on the nodes</td>
+</tr>
+</tbody>
+</table>
+<p>“type f: class:<cite>numpy.ndarray</cite>
+:param dim: dimension of barcode
+:type dim: int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="enriched_ph.EnrichedPH.PCF.compute_volume">
+<code class="descname">compute_volume</code><span class="sig-paren">(</span><em>uniform=False</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF.compute_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute volumes for each simplex.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uniform</strong> (<em>boolean</em><em>, </em><em>default to False.</em>) – whether use unit weight for all simplices, if not, geometric volume is used.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="enriched_ph.EnrichedPH.PCF.construct_smoothed_cocycles">
+<code class="descname">construct_smoothed_cocycles</code><span class="sig-paren">(</span><em>dim</em>, <em>thrsh</em>, <em>lap_type</em>, <em>nsp=None</em>, <em>lsp=None</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF.construct_smoothed_cocycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct smoothed cocycles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dim</strong> (<em>int</em>) – dimension</li>
+<li><strong>thrsh</strong> (<em>float</em>) – only bars longer than threshold is considered and smoothed</li>
+<li><strong>lap_type</strong> (<em>str</em>) – the type of Laplacian to measure smoothness. 1. ‘combinatorial_full’, weighted combinatorial Laplacian; 
+2. ‘combinatorial_low’, the lower combinatorial laplacian</li>
+<li><strong>nsp</strong> (<em>int</em>) – number of points separated equally to take for each bar</li>
+<li><strong>lsp</strong> (<em>float</em>) – the stepsize for taking points for each bar</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="enriched_ph.EnrichedPH.PCF.construct_weighted_combinatorial_laplacian">
+<code class="descname">construct_weighted_combinatorial_laplacian</code><span class="sig-paren">(</span><em>dim</em>, <em>filt_value</em>, <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF.construct_weighted_combinatorial_laplacian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct weighted combinatorial laplacian</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dim</strong> (<em>int</em>) – the dimension of the laplacian</li>
+<li><strong>filt_value</strong> (<em>float</em>) – the filtration value for constructing the matrix</li>
+<li><strong>type</strong> (<em>str</em>) – full laplacian or only the lower part</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="enriched_ph.EnrichedPH.PCF.filtration">
+<code class="descname">filtration</code><span class="sig-paren">(</span><em>rule</em>, <em>nd=None</em>, <em>rips_max=None</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF.filtration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the filtration through dionysus.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rule</strong> (<em>str</em>) – the filtration rules. 1. ‘alpha’, alpha complex; 2. ‘rips_euc’, rips complex with Euclidean distance of point cloud; 3. ‘rips_dmat’, rips complex on the distance matrix)</li>
+<li><strong>nd</strong> (<em>int</em><em>, </em><em>defaults to dimension of X</em>) – max dimension of filtration</li>
+<li><strong>rips_max</strong> (<em>float</em>) – threshold value for rips filtration if rips is used</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="enriched_ph.EnrichedPH.PCF.pcoh">
+<code class="descname">pcoh</code><span class="sig-paren">(</span><em>prime=547</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF.pcoh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run persistent cohomology through dionysus</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>prime</strong> (<em>int</em><em>, </em><em>defaults to 547</em>) – the prime number for the coefficient field</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="enriched_ph.EnrichedPH.PCF.plot_enriched_barcode">
+<code class="descname">plot_enriched_barcode</code><span class="sig-paren">(</span><em>barcode</em>, <em>filt_values</em>, <em>feature_values</em>, <em>dims=None</em>, <em>vminmax=None</em>, <em>colorbar_ticks=None</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF.plot_enriched_barcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the enriched barcode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barcode</strong> (class:<cite>numpy.ndarray</cite>) – an array of original barcode</li>
+<li><strong>filt_values</strong> (class:<cite>numpy.ndarray</cite>) – the filtration values examined for each bar</li>
+<li><strong>feature_values</strong> (class:<cite>numpy.ndarray</cite>) – the value reflecting the additional information</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="enriched_ph.EnrichedPH.PCF.smooth">
+<code class="descname">smooth</code><span class="sig-paren">(</span><em>dim</em>, <em>cocycle</em>, <em>filt_value</em>, <em>lap_type</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.PCF.smooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate smoothed cocycles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dim</strong> (<em>int</em>) – dimension of the cocycle</li>
+<li><strong>cocycle</strong> (<em>[</em><em>list of scalars</em><em>, </em><em>list of tuples</em><em>]</em>) – the original representative cocycle with coefficients and simplices</li>
+<li><strong>filt_value</strong> (<em>float</em>) – the filtration value</li>
+<li><strong>lap_type</strong> (<em>str</em>) – the type of Laplacian to measure smoothness. 1. ‘combinatorial_full’, combinatorial Laplacian, 
+2. ‘combinatorial_low’, the lower combinatorial Laplacian,</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="enriched_ph.EnrichedPH.generate_coulomb_potential_enriched_barcode">
+<code class="descclassname">enriched_ph.EnrichedPH.</code><code class="descname">generate_coulomb_potential_enriched_barcode</code><span class="sig-paren">(</span><em>pcoh_result</em>, <em>atm_pos</em>, <em>charges</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.generate_coulomb_potential_enriched_barcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>This generates the results for protein electrostatic example.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="enriched_ph.EnrichedPH.volume">
+<code class="descclassname">enriched_ph.EnrichedPH.</code><code class="descname">volume</code><span class="sig-paren">(</span><em>Points</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes volume
+For triangle:
+Heron’s formula
+For tetrahedron:
+Wikipedia: tetrahedron
+For higher dimension:
+Cayley-Menger Determinant</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="enriched_ph.EnrichedPH.weighted_wasserstein_distance">
+<code class="descclassname">enriched_ph.EnrichedPH.</code><code class="descname">weighted_wasserstein_distance</code><span class="sig-paren">(</span><em>barcode1</em>, <em>barcode2</em>, <em>alphas</em>, <em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#enriched_ph.EnrichedPH.weighted_wasserstein_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes a sequence of the wasserstein distances.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>a collection of the two components (barcode and the function) w.r.t. the given alphas</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barcode1</strong> (class:<cite>numpy.ndarray</cite>) – enriched barcode with the columns being birth, death, and the non-geometric information</li>
+<li><strong>barcode2</strong> (class:<cite>numpy.ndarray</cite>) – the other enriched barcode to compare with</li>
+<li><strong>alphas</strong> (class:<cite>numpy.ndarray</cite>) – the weights to consider in [0,1], when alpha=0, it returns the p-Wasserstein distance for traditional barcodes</li>
+<li><strong>p</strong> (<em>float</em>) – the power for the Wasserstein distance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">enriched_ph</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Zixuan Cang.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
