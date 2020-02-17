@@ -12,6 +12,8 @@ This can be installed by running ``pip install $ThisDir``.
 
 A jupyter notebook is included in the examples folder showing various examples.
 
+See the branch "python3" for software in Python 3 with more recent dependencies.
+
 ## Acknowledgement
 
 This is the accompanying code for [1] which depends on the persistent (co)homology software Dionysus [2].
