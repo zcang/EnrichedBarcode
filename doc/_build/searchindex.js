@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["api","index"],envversion:53,filenames:["api.rst","index.rst"],objects:{},objnames:{},objtypes:{},terms:{index:1,modul:1,page:1,search:1},titles:["EnrichedPH API Reference","Welcome to EnrichedPH\u2019s documentation!"],titleterms:{The:0,api:0,document:1,enrichedph:[0,1],indic:1,modul:0,refer:0,tabl:1,welcom:1}})
