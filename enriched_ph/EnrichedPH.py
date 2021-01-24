@@ -434,7 +434,14 @@ class PCF:
         filt_values = np.array(filt_values)
         feature_values = np.array(feature_values)
         return barcode, filt_values, feature_values
-                
+
+    def point_weights(self, cocycle, dim):
+        pt_weights = np.zeros([self.X.shape[0]], float)
+        for i in range(len(cocycle)):
+            tmp_ind = np.array( self.nd_simplex_collection[dim][i], int)
+            pt_weights[tmp_ind] += np.abs(cocycle[i])
+        return pt_weights
+
     def plot_enriched_barcode(self, barcode, filt_values, feature_values, dims=None, vminmax=None, colorbar_ticks=None):
         """Plot the enriched barcode
 
